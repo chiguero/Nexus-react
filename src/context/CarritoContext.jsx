@@ -1,28 +1,40 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
+import { AuthContext } from './AuthContext';
 
 export const CarritoContext = createContext();
 
 export function CarritoProvider({ children }) {
-  // Inicializar con lazy initializer
+  const { estaLogueado } = useContext(AuthContext);
+  
+  // Inicializar estado con función (lazy initializer)
   const [carrito, setCarrito] = useState(() => {
     try {
       const guardado = localStorage.getItem('carrito');
       console.log('🚀 INICIALIZANDO carrito (solo 1 vez):', guardado);
       return guardado ? JSON.parse(guardado) : [];
     } catch (error) {
-      console.error('❌ Error al inicializar carrito:', error);
+      console.error('❌ Error al inicializar:', error);
       return [];
     }
   });
 
-  // Guardar cuando cambie
+  // Solo guardar cuando cambien los items del carrito
   useEffect(() => {
     console.log('💾 Guardando carrito:', carrito.length, 'items');
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }, [carrito]);
 
+  // Limpiar carrito cuando el usuario cierre sesión
+  useEffect(() => {
+    if (!estaLogueado) {
+      console.log('🚪 Usuario cerró sesión, vaciando carrito');
+      setCarrito([]);
+      localStorage.removeItem('carrito');
+    }
+  }, [estaLogueado]);
+
   const agregarAlCarrito = (libro) => {
-    console.log('🛒 Agregando al carrito:', libro.title, 'ID:', libro.id);
+    console.log('➕ Intentando agregar:', libro.title, 'ID:', libro.id);
     
     setCarrito(prevCarrito => {
       console.log('   📋 Carrito actual:', prevCarrito.length);
@@ -40,14 +52,21 @@ export function CarritoProvider({ children }) {
         return nuevo;
       }
       
-      console.log('   ✅ Agregando nuevo item al carrito');
-      return [...prevCarrito, { ...libro, cantidad: 1 }];
+      const nuevos = [...prevCarrito, { ...libro, cantidad: 1 }];
+      console.log('   ✅ Agregado! Total ahora:', nuevos.length);
+      return nuevos;
     });
   };
 
   const eliminarDelCarrito = (libroId) => {
-    console.log('🗑️ Eliminando del carrito ID:', libroId);
-    setCarrito(prevCarrito => prevCarrito.filter(item => item.id !== libroId));
+    console.log('➖ Intentando eliminar ID:', libroId);
+    
+    setCarrito(prevCarrito => {
+      console.log('   📋 Carrito antes:', prevCarrito.length);
+      const nuevo = prevCarrito.filter(item => item.id !== libroId);
+      console.log('   ✅ Carrito después:', nuevo.length);
+      return nuevo;
+    });
   };
 
   const actualizarCantidad = (libroId, nuevaCantidad) => {

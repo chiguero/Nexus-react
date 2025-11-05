@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { FavoritosProvider } from './context/FavoritosContext'
-import { CarritoProvider } from './context/CarritoContext'  // ← NUEVO
+import { CarritoProvider } from './context/CarritoContext'
 import { RutaPrivada } from './components/RutaPrivada'
 
 import Navbar from './components/Navbar'
@@ -27,7 +27,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <FavoritosProvider>
-          <CarritoProvider>  {/* ← NUEVO */}
+          <CarritoProvider>
             <BrowserRouter>
               <div className="App">
                 <Navbar abrirCarrito={() => setCarritoAbierto(true)} />
@@ -39,6 +39,7 @@ function App() {
                     <Route path="/catalogo" element={<Catalogo />} />
                     <Route path="/libro/:id" element={<DetalleLibro />} />
                     
+                    {/* RUTAS PROTEGIDAS - Solo para usuarios logueados */}
                     <Route 
                       path="/favoritos" 
                       element={
@@ -57,19 +58,28 @@ function App() {
                       } 
                     />
                     
-                    <Route path="/checkout" element={<Checkout />} />
+                    {/* CHECKOUT - Solo para usuarios logueados */}
+                    <Route 
+                      path="/checkout" 
+                      element={
+                        <RutaPrivada>
+                          <Checkout />
+                        </RutaPrivada>
+                      } 
+                    />
                   </Routes>
                 </main>
 
                 <Footer />
                 
+                {/* Carrito Sidebar */}
                 <Carrito 
                   mostrar={carritoAbierto} 
                   cerrar={() => setCarritoAbierto(false)} 
                 />
               </div>
             </BrowserRouter>
-          </CarritoProvider>  {/* ← NUEVO */}
+          </CarritoProvider>
         </FavoritosProvider>
       </AuthProvider>
     </ThemeProvider>

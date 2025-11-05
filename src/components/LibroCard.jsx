@@ -22,6 +22,13 @@ export default function LibroCard({ libro }) {
     e.preventDefault();
     e.stopPropagation();
     
+    // ✅ VERIFICAR SI ESTÁ LOGUEADO ANTES DE AGREGAR AL CARRITO
+    if (!estaLogueado) {
+      alert('⚠️ Debes iniciar sesión para agregar productos al carrito');
+      navigate('/login');
+      return;
+    }
+    
     console.log('🛒 Intentando agregar al carrito:', libro);
     agregarAlCarrito(libro);
     alert(`"${libro.title}" añadido al carrito`);

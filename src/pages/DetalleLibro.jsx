@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import { obtenerLibroPorId, obtenerResenas, crearResena } from '../services/apidogService';
 import { useCarrito } from '../hooks/useCarrito';
 import { useFavoritos } from '../hooks/useFavoritos';
@@ -7,6 +8,8 @@ import { obtenerPortada } from '../config/imagenesPortadas';
 
 export default function DetalleLibro() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { estaLogueado } = useContext(AuthContext);
   const [libro, setLibro] = useState(null);
   const [resenas, setResenas] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -29,21 +32,39 @@ export default function DetalleLibro() {
       // Filtrar reseñas que pertenecen a este libro
       const resenasDelLibro = (todasResenas || []).filter(
         resena => resena.bookId === Number(id)
-        );
+      );
     
-    setLibro(libroData);
-    setResenas(resenasDelLibro);
-  } catch (error) {
-    console.error('Error al cargar libro:', error);
-    setResenas([]);
-  } finally {
-    setCargando(false);
-  }
-};
+      setLibro(libroData);
+      setResenas(resenasDelLibro);
+    } catch (error) {
+      console.error('Error al cargar libro:', error);
+      setResenas([]);
+    } finally {
+      setCargando(false);
+    }
+  };
 
   const handleAgregarCarrito = () => {
+    // ✅ VERIFICAR SI ESTÁ LOGUEADO ANTES DE AGREGAR AL CARRITO
+    if (!estaLogueado) {
+      alert('⚠️ Debes iniciar sesión para agregar productos al carrito');
+      navigate('/login');
+      return;
+    }
+
     agregarAlCarrito(libro);
     alert(`"${libro.title}" añadido al carrito`);
+  };
+
+  const handleToggleFavorito = () => {
+    // Verificar si está logueado
+    if (!estaLogueado) {
+      alert('⚠️ Debes iniciar sesión para agregar favoritos');
+      navigate('/login');
+      return;
+    }
+
+    toggleFavorito(libro);
   };
 
   const handleSubmitResena = async (e) => {
@@ -91,7 +112,7 @@ export default function DetalleLibro() {
               🛒 Añadir al carrito
             </button>
             <button 
-              onClick={() => toggleFavorito(libro)} 
+              onClick={handleToggleFavorito}
               className={`btn-favorito-grande ${esFavorito(libro.id) ? 'activo' : ''}`}
             >
               {esFavorito(libro.id) ? '❤️ En favoritos' : '🤍 Añadir a favoritos'}
