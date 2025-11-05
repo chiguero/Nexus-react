@@ -1,0 +1,733 @@
+/* ============================================
+   COMPONENTS.CSS - Componentes reutilizables
+   ============================================ */
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn-primary {
+  display: inline-block;
+  background: white;
+  color: #667eea;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 2rem;
+  transition: background 0.2s;
+}
+
+body.dark-mode .btn-secondary {
+  background: #334155;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+}
+
+body.dark-mode .btn-secondary:hover {
+  background: #475569;
+}
+
+.btn-agregar {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+  background: #1d4ed8;
+}
+
+.btn-comprar {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #2563eb;
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn-comprar:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-favorito-grande {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f1f5f9;
+  color: #334155;
+  min-width: 200px;
+}
+
+body.dark-mode .btn-favorito-grande {
+  background: #334155;
+  color: white;
+}
+
+.btn-favorito-grande:hover {
+  background: #e2e8f0;
+}
+
+body.dark-mode .btn-favorito-grande:hover {
+  background: #475569;
+}
+
+.btn-favorito-grande.activo {
+  background: #fecaca;
+  color: #dc2626;
+}
+
+body.dark-mode .btn-favorito-grande.activo {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #1d4ed8;
+}
+
+.btn-pagar {
+  width: 100%;
+  padding: 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-pagar:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.btn-volver {
+  display: inline-block;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: opacity 0.2s;
+}
+
+.btn-volver:hover {
+  opacity: 0.7;
+}
+
+.btn-favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+}
+
+.btn-favorito.activo {
+  animation: heartbeat 0.3s;
+}
+
+.btn-favorito:focus,
+.btn-cerrar:focus,
+.btn-eliminar:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.btn-cerrar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.btn-cerrar:hover {
+  background: #f1f5f9;
+}
+
+body.dark-mode .btn-cerrar:hover {
+  background: #334155;
+}
+
+.btn-eliminar {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.btn-eliminar:hover {
+  opacity: 1;
+}
+
+/* ============================================
+   LIBRO CARD
+   ============================================ */
+.libros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.libro-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+body.dark-mode .libro-card {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.libro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.libro-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.libro-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.libro-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  min-height: 2.4em;
+  line-height: 1.2;
+}
+
+.autor, .categoria {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.precio {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin: 0.5rem 0;
+}
+
+/* ============================================
+   BUSCADOR
+   ============================================ */
+.buscador {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: block;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.buscador:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+body.dark-mode .buscador {
+  background: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+/* ============================================
+   CARRITO SIDEBAR
+   ============================================ */
+.carrito-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.carrito-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+}
+
+body.dark-mode .carrito-sidebar {
+  background: #1e293b;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.carrito-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.dark-mode .carrito-header {
+  border-bottom-color: #334155;
+}
+
+.carrito-header h2 {
+  font-size: 1.5rem;
+}
+
+.carrito-vacio {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.carrito-vacio p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.carrito-vacio a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.carrito-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.carrito-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .carrito-item {
+  background: #2a2a2a;
+}
+
+.carrito-item img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-info h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-info .autor {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.item-info .precio {
+  font-weight: bold;
+  color: #2563eb;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+.item-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  padding: 0.25rem;
+}
+
+body.dark-mode .item-cantidad {
+  background: #1e293b;
+}
+
+.item-cantidad button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+body.dark-mode .item-cantidad button {
+  background: #334155;
+  color: white;
+}
+
+.item-cantidad button:hover {
+  background: #cbd5e1;
+}
+
+body.dark-mode .item-cantidad button:hover {
+  background: #475569;
+}
+
+.item-cantidad span {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.carrito-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1.5rem;
+}
+
+body.dark-mode .carrito-footer {
+  border-top-color: #334155;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.total-precio {
+  color: #2563eb;
+}
+
+.btn-checkout {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-checkout:hover {
+  background: #1d4ed8;
+}
+
+/* ============================================
+   RESEÑAS
+   ============================================ */
+.resenas-section {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+body.dark-mode .resenas-section {
+  background: #1e293b;
+}
+
+.resenas-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-resena {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .form-resena {
+  background: #2a2a2a;
+}
+
+.form-resena h3 {
+  margin-bottom: 1rem;
+}
+
+.form-resena select,
+.form-resena textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+body.dark-mode .form-resena select,
+body.dark-mode .form-resena textarea {
+  background: #1e293b;
+  color: white;
+  border-color: #444;
+}
+
+.form-resena textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.lista-resenas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resena-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+body.dark-mode .resena-card {
+  background: #2a2a2a;
+}
+
+.resena-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.rating {
+  font-size: 1.2rem;
+}
+
+.fecha {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.comentario {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ============================================
+   ESTADOS
+   ============================================ */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+.error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+body.dark-mode .error {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+.no-resultados {
+  text-align: center;
+  padding: 3rem;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE - COMPONENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .libros-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .libro-card img {
+    height: 220px;
+  }
+
+  .carrito-sidebar {
+    width: 100%;
+  }
+
+  .carrito-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .carrito-item {
+    flex-wrap: wrap;
+  }
+
+  .btn-favorito {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .libros-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .libro-card img {
+    height: 280px;
+  }
+};

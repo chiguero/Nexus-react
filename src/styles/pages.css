@@ -1,0 +1,534 @@
+/* ============================================
+   PAGES.CSS - Estilos de páginas específicas
+   ============================================ */
+
+/* ============================================
+   LANDING PAGE
+   ============================================ */
+.landing {
+  width: 100%;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.destacados {
+  margin-top: 3rem;
+}
+
+.destacados h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.ver-mas {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 3rem 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+body.dark-mode .features {
+  border-top-color: #334155;
+}
+
+.feature {
+  text-align: center;
+  padding: 1rem;
+}
+
+.feature .icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.feature p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   CATÁLOGO
+   ============================================ */
+.catalogo {
+  width: 100%;
+}
+
+.catalogo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ============================================
+   DETALLE LIBRO
+   ============================================ */
+.detalle-libro {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.libro-info {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.libro-info img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.libro-datos h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.libro-datos .autor {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.libro-datos .categoria,
+.libro-datos .editorial,
+.libro-datos .year,
+.libro-datos .isbn {
+  margin: 0.5rem 0;
+  color: #64748b;
+}
+
+.descripcion {
+  margin: 1.5rem 0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.precio-grande {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin: 1rem 0;
+}
+
+.acciones {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   FAVORITOS
+   ============================================ */
+.favoritos {
+  width: 100%;
+}
+
+.favoritos h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.favoritos-vacio {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.favoritos-vacio h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.favoritos-vacio p {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   CHECKOUT
+   ============================================ */
+.checkout {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.checkout h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.checkout-vacio {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.checkout-vacio h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.checkout-vacio button {
+  padding: 1rem 2rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.checkout-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.resumen-pedido {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+body.dark-mode .resumen-pedido {
+  background: #1e293b;
+}
+
+.resumen-pedido h2 {
+  margin-bottom: 1.5rem;
+}
+
+.item-resumen {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.dark-mode .item-resumen {
+  border-bottom-color: #334155;
+}
+
+.item-resumen:last-of-type {
+  border-bottom: none;
+}
+
+.item-resumen img {
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-resumen div {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-resumen p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.item-resumen p:first-child {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.item-resumen .precio {
+  font-weight: bold;
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+.total-resumen {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #2563eb;
+}
+
+.formulario-pago {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .formulario-pago {
+  background: #1e293b;
+}
+
+.formulario-pago h2 {
+  margin-bottom: 1.5rem;
+}
+
+.formulario-pago input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.formulario-pago input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+body.dark-mode .formulario-pago input {
+  background: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+.fila-dos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formulario-pago h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   MI CUENTA
+   ============================================ */
+.mi-cuenta {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .mi-cuenta {
+  background: #1e293b;
+}
+
+.mi-cuenta h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.mi-cuenta p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.mi-cuenta button {
+  padding: 0.75rem 2rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 2rem;
+  transition: background 0.2s;
+}
+
+.mi-cuenta button:hover {
+  background: #dc2626;
+}
+
+/* ============================================
+   LOGIN
+   ============================================ */
+.login-page {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .login-page {
+  background: #2a2a2a;
+}
+
+.login-page h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.login-page input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.login-page input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+body.dark-mode .login-page input {
+  background: #1e293b;
+  color: white;
+  border-color: #444;
+}
+
+.login-page button {
+  padding: 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-page button:hover {
+  background: #1d4ed8;
+}
+
+/* ============================================
+   RESPONSIVE - PAGES
+   ============================================ */
+@media (max-width: 1024px) {
+  .libro-info {
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+
+  .checkout-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen-pedido {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .libro-info {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .libro-info img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+
+  .btn-comprar,
+  .btn-favorito-grande {
+    min-width: 100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .checkout-contenido {
+    gap: 2rem;
+  }
+
+  .formulario-pago {
+    padding: 1.5rem;
+  }
+
+  .fila-dos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .detalle-libro h1 {
+    font-size: 1.5rem;
+  }
+
+  .precio-grande {
+    font-size: 2rem;
+  }
+}
