@@ -28,7 +28,7 @@ function App() {
       <AuthProvider>
         <FavoritosProvider>
           <CarritoProvider>
-            <BrowserRouter>
+            <BrowserRouter basename="/crismp2">  {/* ← IMPORTANTE: basename */}
               <div className="App">
                 <Navbar abrirCarrito={() => setCarritoAbierto(true)} />
                 

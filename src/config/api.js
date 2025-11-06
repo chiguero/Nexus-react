@@ -1,8 +1,2 @@
-// Detectar si estamos en desarrollo o producción
-const isDevelopment = import.meta.env.DEV;
-
-// En desarrollo usa el proxy, en producción usa la URL completa
-// IMPORTANTE: Mantener /apidog en la base URL
-export const API_BASE_URL = isDevelopment 
-  ? "/apidog" 
-  : "https://lawebdeperez.es/apidog";
+// Usar la ruta del mismo servidor (no hay problema de CORS)
+export const API_BASE_URL = "https://lawebdeperez.es/apidog";
