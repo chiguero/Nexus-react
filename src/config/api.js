@@ -2,6 +2,7 @@
 const isDevelopment = import.meta.env.DEV;
 
 // En desarrollo usa el proxy, en producción usa la URL completa
+// IMPORTANTE: Mantener /apidog en la base URL
 export const API_BASE_URL = isDevelopment 
   ? "/apidog" 
   : "https://lawebdeperez.es/apidog";
