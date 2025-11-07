@@ -14,10 +14,6 @@ export default function LibroCard({ libro }) {
 
   const imagenPortada = obtenerPortada(libro.id, libro.coverImage);
 
-  const handleErrorImagen = (e) => {
-    e.target.src = '/images/portadas/placeholder.jpg';
-  };
-
   const handleAgregarCarrito = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -66,7 +62,6 @@ export default function LibroCard({ libro }) {
         <img 
           src={imagenPortada} 
           alt={libro.title}
-          onError={handleErrorImagen}
           loading="lazy"
         />
         <h3>{libro.title}</h3>
