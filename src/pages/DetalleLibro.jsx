@@ -29,7 +29,6 @@ export default function DetalleLibro() {
       const libroData = await obtenerLibroPorId(id);
       const todasResenas = await obtenerResenas(id);
     
-      // Filtrar reseñas que pertenecen a este libro
       const resenasDelLibro = (todasResenas || []).filter(
         resena => resena.bookId === Number(id)
       );
@@ -45,7 +44,6 @@ export default function DetalleLibro() {
   };
 
   const handleAgregarCarrito = () => {
-    // ✅ VERIFICAR SI ESTÁ LOGUEADO ANTES DE AGREGAR AL CARRITO
     if (!estaLogueado) {
       alert('⚠️ Debes iniciar sesión para agregar productos al carrito');
       navigate('/login');
@@ -57,7 +55,6 @@ export default function DetalleLibro() {
   };
 
   const handleToggleFavorito = () => {
-    // Verificar si está logueado
     if (!estaLogueado) {
       alert('⚠️ Debes iniciar sesión para agregar favoritos');
       navigate('/login');
@@ -87,7 +84,6 @@ export default function DetalleLibro() {
   if (cargando) return <div className="loading">Cargando...</div>;
   if (!libro) return <div className="error">Libro no encontrado</div>;
 
-  // Usar imagen local si existe
   const imagenPortada = obtenerPortada(libro.id, libro.coverImage);
 
   return (
