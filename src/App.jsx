@@ -22,13 +22,16 @@ import './App.css'
 
 function App() {
   const [carritoAbierto, setCarritoAbierto] = useState(false)
+  
+  // En desarrollo no usar basename, en producción sí
+  const basename = import.meta.env.DEV ? '/' : '/crismp2';
 
   return (
     <ThemeProvider>
       <AuthProvider>
         <FavoritosProvider>
           <CarritoProvider>
-            <BrowserRouter basename="/crismp2">  {/* ← IMPORTANTE: basename */}
+            <BrowserRouter basename={basename}>
               <div className="App">
                 <Navbar abrirCarrito={() => setCarritoAbierto(true)} />
                 
